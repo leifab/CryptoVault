@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path=".gitignore" />
+    <File Path="CONTRIBUTING.md" />
+    <File Path="LICENSE" />
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="CryptoVault.App/CryptoVault.csproj" />
+  <Project Path="CryptoVault.Database/CryptoVault.Database.sqlproj" Type="42ea0dbd-9cf1-443e-919e-be9c484e4577" />
+</Solution>

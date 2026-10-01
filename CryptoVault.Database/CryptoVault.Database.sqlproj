@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build">
+  <Sdk Name="Microsoft.Build.Sql" Version="2.3.0" />
+  <PropertyGroup>
+    <Name>CryptoVault.Database</Name>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql170DatabaseSchemaProvider</DSP>
+    <ModelCollation>1033, CI</ModelCollation>
+    <ProjectGuid>0F9AEB43-8ECD-4AC6-A3C5-028841EAC9A8</ProjectGuid>
+
+    <!-- Database Options -->
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <RecoveryMode>Simple</RecoveryMode>
+    <PageVerifyMode>Checksum</PageVerifyMode>
+    <Containment>Partial</Containment>
+    <ReadCommittedSnapshot>False</ReadCommittedSnapshot>
+    <AllowSnapshotIsolation>False</AllowSnapshotIsolation>
+    <TargetRecoveryTimePeriod>60</TargetRecoveryTimePeriod>
+    <TargetRecoveryTimeUnit>Seconds</TargetRecoveryTimeUnit>
+    <ArithAbort>True</ArithAbort>
+    <ConcatNullYieldsNull>True</ConcatNullYieldsNull>
+    <AnsiNulls>True</AnsiNulls>
+    <AnsiPadding>True</AnsiPadding>
+    <AnsiWarnings>True</AnsiWarnings>
+    <QuotedIdentifier>True</QuotedIdentifier>
+
+    <!-- FILESTREAM Database Options -->
+    <NonTransactedFileStreamAccess>Full</NonTransactedFileStreamAccess>
+    <FileStreamDirectoryName>cryptovault</FileStreamDirectoryName>
+  </PropertyGroup>
+</Project>

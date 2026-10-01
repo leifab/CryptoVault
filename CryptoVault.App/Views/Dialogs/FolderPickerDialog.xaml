@@ -1,0 +1,68 @@
+<Window x:Class="CryptoVault.FolderPickerDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Select Destination Folder" 
+        Height="420" Width="480"
+        MinWidth="380" MinHeight="260"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="CanResize"
+        ShowInTaskbar="False">
+    <DockPanel Margin="12">
+        <!-- Top Breadcrumb & Up Button -->
+        <DockPanel DockPanel.Dock="Top" Margin="0,0,0,8">
+            <Button x:Name="UpButton" 
+                    Content="⬆ Up" 
+                    DockPanel.Dock="Right" 
+                    Width="65" Height="26" 
+                    Margin="8,0,0,0" 
+                    Click="OnUpButtonClick" />
+            <TextBlock x:Name="CurrentPathTextBlock" 
+                       VerticalAlignment="Center" 
+                       FontWeight="SemiBold" 
+                       TextTrimming="CharacterEllipsis" 
+                       Text="Target: /" />
+        </DockPanel>
+
+        <!-- Bottom Action Buttons -->
+        <DockPanel DockPanel.Dock="Bottom" Margin="0,10,0,0">
+            <Button x:Name="NewFolderButton" 
+                    Content="New Folder..." 
+                    DockPanel.Dock="Left" 
+                    Width="105" Height="26" 
+                    Click="OnNewFolderClick" />
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button x:Name="MoveHereButton" 
+                        Content="Move Here" 
+                        Width="95" Height="26" 
+                        Margin="0,0,8,0" 
+                        IsDefault="True" 
+                        FontWeight="SemiBold" 
+                        Click="OnMoveHereClick" />
+                <Button Content="Cancel" 
+                        Width="75" Height="26" 
+                        IsCancel="True" />
+            </StackPanel>
+        </DockPanel>
+
+        <!-- Center: Folder List -->
+        <ListView x:Name="FolderListView" 
+                  SelectionMode="Single"
+                  MouseDoubleClick="OnFolderListViewMouseDoubleClick">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Folder Name" Width="410">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="📁 " FontSize="13" VerticalAlignment="Center" />
+                                    <TextBlock Text="{Binding DisplayName}" VerticalAlignment="Center" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </DockPanel>
+</Window>
+

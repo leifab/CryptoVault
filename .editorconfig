@@ -1,0 +1,158 @@
+# Top-most EditorConfig file
+root = true
+
+# All files
+[*]
+indent_style = space
+indent_size = 4
+end_of_line = crlf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+# XML / XAML / Project files
+[*.{xml,xaml,csproj,sqlproj,slnx}]
+indent_size = 2
+
+# Markdown
+[*.md]
+trim_trailing_whitespace = false
+
+# C# files
+[*.cs]
+indent_size = 4
+
+#### Core C# Coding Conventions ####
+
+# File-scoped namespaces (C# 10+)
+csharp_style_namespace_declarations = file_scoped:warning
+
+# var preferences
+csharp_style_var_for_built_in_types = false:suggestion
+csharp_style_var_when_type_is_apparent = true:suggestion
+csharp_style_var_elsewhere = true:suggestion
+
+# Expression-bodied members
+csharp_style_expression_bodied_methods = when_on_single_line:suggestion
+csharp_style_expression_bodied_constructors = false:suggestion
+csharp_style_expression_bodied_operators = when_on_single_line:suggestion
+csharp_style_expression_bodied_properties = true:suggestion
+csharp_style_expression_bodied_indexers = true:suggestion
+csharp_style_expression_bodied_accessors = true:suggestion
+csharp_style_expression_bodied_lambdas = true:suggestion
+csharp_style_expression_bodied_local_functions = when_on_single_line:suggestion
+
+# Pattern matching preferences
+csharp_style_pattern_matching_over_is_syntax = true:suggestion
+csharp_style_pattern_matching_over_as_with_null_check = true:suggestion
+csharp_style_inlined_variable_declaration = true:suggestion
+
+# Null-checking preferences
+csharp_style_throw_expression = true:suggestion
+csharp_style_conditional_delegate_call = true:suggestion
+csharp_style_null_propagation = true:suggestion
+
+# Modifier preferences
+csharp_prefer_static_local_function = true:suggestion
+dotnet_style_require_accessibility_modifiers = for_non_interface_members:suggestion
+csharp_preferred_modifier_order = public,private,protected,internal,static,extern,new,virtual,abstract,sealed,override,readonly,unsafe,volatile,async:suggestion
+
+# Language preferences
+csharp_style_prefer_tuple_swap = true:suggestion
+csharp_style_implicit_object_creation_when_type_is_apparent = true:suggestion
+csharp_style_prefer_index_operator = true:suggestion
+csharp_style_prefer_range_operator = true:suggestion
+
+# 'this.' and 'Me.' preferences
+dotnet_style_qualification_for_field = false:suggestion
+dotnet_style_qualification_for_property = false:suggestion
+dotnet_style_qualification_for_method = false:suggestion
+dotnet_style_qualification_for_event = false:suggestion
+
+#### Formatting Conventions (Allman style - Microsoft default) ####
+
+# New line preferences
+csharp_new_line_before_open_brace = all
+csharp_new_line_before_else = true
+csharp_new_line_before_catch = true
+csharp_new_line_before_finally = true
+csharp_new_line_before_members_in_object_initializers = true
+csharp_new_line_before_members_in_anonymous_types = true
+csharp_new_line_between_query_expression_clauses = true
+
+# Indentation preferences
+csharp_indent_case_contents = true
+csharp_indent_switch_labels = true
+csharp_indent_labels = one_less_than_current
+
+# Space preferences
+csharp_space_after_cast = false
+csharp_space_after_keywords_in_control_flow_statements = true
+csharp_space_between_parentheses = false
+csharp_space_before_colon_in_inheritance_clause = true
+csharp_space_after_colon_in_inheritance_clause = true
+csharp_space_around_binary_operators = before_and_after
+csharp_space_between_empty_square_brackets = false
+csharp_space_before_semicolon_in_for_statement = false
+csharp_space_after_semicolon_in_for_statement = true
+
+#### Naming Conventions ####
+
+# Async methods ending with 'Async' (disabled because Roslyn is smoking crack trying to force 'Async' on 'async void' event handlers, violating Microsoft TAP guidelines)
+dotnet_naming_rule.async_methods_must_end_with_async.symbols = async_methods
+dotnet_naming_rule.async_methods_must_end_with_async.style = async_method_style
+dotnet_naming_rule.async_methods_must_end_with_async.severity = none
+
+dotnet_naming_symbols.async_methods.applicable_kinds = method
+dotnet_naming_symbols.async_methods.applicable_accessibilities = *
+dotnet_naming_symbols.async_methods.required_modifiers = async
+
+dotnet_naming_style.async_method_style.required_suffix = Async
+dotnet_naming_style.async_method_style.capitalization = pascal_case
+
+# Interfaces begin with 'I'
+dotnet_naming_rule.interfaces_must_begin_with_i.symbols = interface_symbols
+dotnet_naming_rule.interfaces_must_begin_with_i.style = interface_style
+dotnet_naming_rule.interfaces_must_begin_with_i.severity = warning
+
+dotnet_naming_symbols.interface_symbols.applicable_kinds = interface
+dotnet_naming_symbols.interface_symbols.applicable_accessibilities = *
+
+dotnet_naming_style.interface_style.required_prefix = I
+dotnet_naming_style.interface_style.capitalization = pascal_case
+
+# Types are PascalCase
+dotnet_naming_rule.types_must_be_pascal_case.symbols = type_symbols
+dotnet_naming_rule.types_must_be_pascal_case.style = pascal_case_style
+dotnet_naming_rule.types_must_be_pascal_case.severity = warning
+
+dotnet_naming_symbols.type_symbols.applicable_kinds = class, struct, enum, delegate
+dotnet_naming_symbols.type_symbols.applicable_accessibilities = *
+
+dotnet_naming_style.pascal_case_style.capitalization = pascal_case
+
+# Private and internal fields begin with '_'
+dotnet_naming_rule.private_fields_must_begin_with_underscore.symbols = private_fields
+dotnet_naming_rule.private_fields_must_begin_with_underscore.style = private_field_style
+dotnet_naming_rule.private_fields_must_begin_with_underscore.severity = suggestion
+
+dotnet_naming_symbols.private_fields.applicable_kinds = field
+dotnet_naming_symbols.private_fields.applicable_accessibilities = private, internal
+
+dotnet_naming_style.private_field_style.required_prefix = _
+dotnet_naming_style.private_field_style.capitalization = camel_case
+
+#### Diagnostic / Analyzer Rules ####
+
+# CA1069: Enums should not have duplicate values
+dotnet_diagnostic.CA1069.severity = error
+
+# CA1822: Mark members as static when they don't access instance data
+dotnet_diagnostic.CA1822.severity = suggestion
+
+# CA2007: Do not directly await a Task (disabled for WPF UI applications where SynchronizationContext affinity is desired)
+dotnet_diagnostic.CA2007.severity = none
+
+# SA1202: Elements should appear in the correct order by access modifier (disabled because members are sorted alphabetically by name regardless of visibility, because we're not fucking psychopaths)
+dotnet_diagnostic.SA1202.severity = none
+

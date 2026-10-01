@@ -1,0 +1,54 @@
+## Build results
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+TestResults/
+*.trx
+
+## Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## SSDT / DacFx build outputs & caches
+*.dacpac
+*.dbmdl
+*.sqlproj.user
+*.publish.sql
+*.publish.xml
+!*.publish.example.xml
+
+## PHP & Composer
+vendor/
+
+## Visual Studio Code
+.vscode/
+
+## Rider
+.idea/
+*.sln.iml
+
+## Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+## Environment & Secrets
+.env
+.env.*
+*.env
+!.env.example
+
+## AI Assistant Instructions
+GEMINI.md
+*.gemini.md
+
+## Omitted / Private Components
+CryptoVault.Web/
+
+
+

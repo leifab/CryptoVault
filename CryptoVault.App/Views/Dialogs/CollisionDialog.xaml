@@ -1,0 +1,74 @@
+<Window x:Class="CryptoVault.CollisionDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Name Conflict" 
+        Height="310" Width="470"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False">
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Message Header -->
+        <TextBlock Grid.Row="0" 
+                   Text="An item with this name already exists in the destination folder:" 
+                   FontWeight="SemiBold" 
+                   Margin="0,0,0,6" />
+
+        <TextBlock x:Name="ConflictItemTextBlock" 
+                   Grid.Row="1" 
+                   FontSize="13" 
+                   FontWeight="Bold" 
+                   Margin="0,0,0,12" 
+                   Foreground="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" 
+                   TextTrimming="CharacterEllipsis" />
+
+        <!-- Choice Actions -->
+        <StackPanel Grid.Row="2" Orientation="Vertical" VerticalAlignment="Top">
+            <Button x:Name="AutoRenameButton" 
+                    Height="30" 
+                    Margin="0,0,0,6" 
+                    HorizontalContentAlignment="Left" 
+                    Padding="10,0" 
+                    Click="OnAutoRenameClick" />
+            <Button x:Name="CustomRenameButton" 
+                    Content="✏️ Custom Rename..." 
+                    Height="30" 
+                    Margin="0,0,0,6" 
+                    HorizontalContentAlignment="Left" 
+                    Padding="10,0" 
+                    Click="OnCustomRenameClick" />
+            <Button x:Name="OverwriteButton" 
+                    Content="⚠️ Replace / Overwrite Destination File" 
+                    Height="30" 
+                    Margin="0,0,0,6" 
+                    HorizontalContentAlignment="Left" 
+                    Padding="10,0" 
+                    Click="OnOverwriteClick" />
+            <Button x:Name="SkipButton" 
+                    Content="⏭️ Skip This Item" 
+                    Height="30" 
+                    HorizontalContentAlignment="Left" 
+                    Padding="10,0" 
+                    Click="OnSkipClick" />
+        </StackPanel>
+
+        <!-- Apply to all checkbox -->
+        <CheckBox x:Name="ApplyToAllCheckBox" 
+                  Grid.Row="3" 
+                  Content="Do this for all remaining conflicts" 
+                  Margin="0,8,0,10" />
+
+        <!-- Cancel -->
+        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Cancel Move" Width="95" Height="26" IsCancel="True" Click="OnCancelClick" />
+        </StackPanel>
+    </Grid>
+</Window>
+
